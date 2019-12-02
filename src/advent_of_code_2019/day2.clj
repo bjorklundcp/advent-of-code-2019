@@ -6,11 +6,6 @@
                          #",")
               (mapv #(Integer/parseInt %))))
 
-;(def puzzle (->>
-;              (str/split "1,1,1,4,99,5,6,0,99"
-;                         #",")
-;              (mapv #(Integer/parseInt %))))
-
 (defn process-addition
   [puzzle pos-1 pos-2 location]
   (assoc puzzle location (+ (nth puzzle pos-1) (nth puzzle pos-2))))
@@ -46,8 +41,6 @@
   (loop [puzzle puzzle
          noun 0
          verb 0]
-    ;(println noun)
-    ;(println verb)
     (if (= 19690720 (solve-puzzle (assoc puzzle 1 noun 2 verb)))
       (-> (* 100 noun)
           (+ verb))
