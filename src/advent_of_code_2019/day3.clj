@@ -34,13 +34,13 @@
                           Integer/parseInt))
       wire
       (recur (inc iterations)
-             (conj wire (get-next-coordinate (subs instruction 0 1) (last wire)))))))
+             (conj wire (get-next-coordinate (subs instruction 0 1) (first wire)))))))
 
 (defn build-wire
   [instruction-set]
   (reduce (fn [wire instruction]
             (lay-wire wire instruction))
-          [[0 0]]
+          '([0 0])
           instruction-set))
 
 (defn part-1
